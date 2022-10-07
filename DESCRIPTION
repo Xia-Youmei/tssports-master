@@ -1,0 +1,44 @@
+Package: tssports
+Version: 1.0.2
+Date: 2022-10-7
+Type: Package
+Title: It integrates tsRNA feature extraction, differential analysis and extensive visualization functions in one.
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+Author: "Youmei Xia"
+Maintainer: The package maintainer <xiayoumei666@163.com>
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/Xia-Youmei/tssportsV1.02
+BugReports: https://github.com/Xia-Youmei/tssportsV1.02/issues
+RoxygenNote: 7.2.1
+Depends:
+    R (>= 4.0.0)
+Imports:
+    tidyverse,
+    stringr,
+    stringi,
+    dplyr,
+    DESeq2,
+    FactoMineR,
+    factoextra,
+    ggplot2 (>= 3.3.0),
+    ggthemes,
+    ggpubr,
+    pheatmap,
+    viridis,
+    ggrepel
+Collate:
+    'collapse_mature_mirna_reads.R'
+    'combine_read_counts_from_sports.R'
+    'getdegs.R'
+    'tsRNA_ann_classify.R'
+    'pca.R'
+    'visualization.R'
+    'zzz.R'
+Suggests:
+    devtools,
+    testthat
+
+
