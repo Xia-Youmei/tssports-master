@@ -1,6 +1,6 @@
 Package: tssports
 Version: 1.0.2
-Date: 2022-10-7
+Date: 2022-10-9
 Type: Package
 Title: It integrates tsRNA feature extraction, differential analysis and extensive visualization functions in one.
 Description: More about what it does (maybe more than one line)
@@ -10,8 +10,8 @@ Maintainer: The package maintainer <xiayoumei666@163.com>
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/Xia-Youmei/tssportsV1.02
-BugReports: https://github.com/Xia-Youmei/tssportsV1.02/issues
+URL: https://github.com/Xia-Youmei/tssports-master
+BugReports: https://github.com/Xia-Youmei/tssports-master/issues
 RoxygenNote: 7.2.1
 Depends:
     R (>= 4.0.0)
