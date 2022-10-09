@@ -208,7 +208,7 @@ maplot.pdf: This function will automatically identifies the sports_deg_all.txt f
 
 heatmap_plot.pdf: This function will automatically identifies the sports_cpm_fdr005_2fc_all.txt and sports_DEG_fdr005_2fc_all.txt files in the folder, selects and uses the ggplot2 R package to draw a heat map of the differentially expressed genes that sports outputs, Generate the heatmap_plot.pdf file.
 
-volcano_plot: This function will will automatically identify the sports_DEG_all.txt file in the folder and use the ggplot2 R package to draw the volcano plot of sports output differentially expressed genes, log2FC>1, p≤0.05, generate the "maplot.pdf" file.
+volcano_plot: This function will will automatically identify the sports_DEG_all.txt file in the folder and use the ggplot2 R package to draw the volcano plot of sports output differentially expressed genes, log2FC>1, p≤0.05, generate the "volcano_plot.pdf" file.
 
 ``` r
 visualization()
