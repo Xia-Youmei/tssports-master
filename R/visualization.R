@@ -24,6 +24,7 @@ visualization <- function(){
           plot.title = element_text(hjust = 0.5,size = 20)
     )
   p <- ggplot(data=data_1, mapping=aes(x="Improved",y=value,fill=group))+
+    labs(x=NULL,y=NULL,title = 'N vs T')+
     geom_bar(stat="identity",width=1,color="white",position='stack',size=0.8)+
     coord_polar("y", start=0)+
     scale_fill_manual(values=c( "#F58C63","#66C3A6","#8BA0CC","#A680B9"))+
@@ -50,6 +51,7 @@ visualization <- function(){
           plot.title = element_text(hjust = 0.5,size = 20)
     )
   p <- ggplot(data=data_1, mapping=aes(x="Improved",y=value,fill=group))+
+    labs(x=NULL,y=NULL,title = 'N vs T')+
     geom_bar(stat="identity",width=1,color="white",position='stack',size=0.8)+
     coord_polar("y", start=0)+
     scale_fill_manual(values=c( "#F58C63","#66C3A6","#8BA0CC"))+
