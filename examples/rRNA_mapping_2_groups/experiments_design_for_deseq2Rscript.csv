@@ -1,0 +1,7 @@
+Samples,Data_Type,Conditions,Comparsion
+SRR11004011,RNA-Seq,N,Conditions_T_vs_N
+SRR11004012,RNA-Seq,N,Conditions_L_vs_N
+SRR11004013,RNA-Seq,N,Conditions_L_vs_T
+SRR11004020,RNA-Seq,T,no
+SRR11004021,RNA-Seq,T,no
+SRR11004022,RNA-Seq,T,no

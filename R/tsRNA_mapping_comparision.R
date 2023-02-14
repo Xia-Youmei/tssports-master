@@ -1,7 +1,7 @@
 #' @title Plot tRNA mapping comparision coverage profile
 #'
 #' @description
-#'  Plot the coverage profile of the tRNA, Solid curves presenting average RPM of 2 groups(treat VS control) or 3 groups(high VS control; low VS control). RPM, reads per million; nt, nucleotide. Colored band stood for 95% CI.
+#'  Plot the coverage profile of the tsRNA, Solid curves presenting average RPM of 2 groups(treat VS control) or 3 groups(high VS control; low VS control). RPM, reads per million; nt, nucleotide. Colored band stood for 95% CI.
 #'
 #' @param filename  specific tsRNA name, which filename maybe like "_mappingplot.txt".
 #' @param pattern  A uniform suffix for the filename results returned by the function of prepare_tsRNA_mapping_plotdata.
@@ -12,24 +12,24 @@
 #' @param colors The color of the line in the line chart.
 #' @param suffix A format suffix for a graph file.
 #'
-#' @return the coverage profile of the tRNA and form a new file "specific tsRNA".pdf.
+#' @return the coverage profile of the tsRNA and form a new file "specific tsRNA".pdf.
 #' @export
 #'
 #' @examples
 #' 2 group : treat VS control
-#' tRNA_mapping_comparision(filename = "Homo_sapiens_tRNA-Glu-TTC-1_mappingplot.txt",
+#' tsRNA_mapping_comparision(filename = "Homo_sapiens_tRNA-Glu-TTC-1_mappingplot.txt",
 #' Tsamples=c("XWH5_S7_L004", "XWH4_S6_L004", "XWH1_S0_L000", "XWH2_S6_L003"),
 #' Nsamples=c("XWN1_S1_L004", "XWN2_S2_L004", "XWN3_S5_L003")
 #'
 #' 3 group : high VS control; low VS control
-#' tRNA_mapping_comparision(filename = "Homo_sapiens_tRNA-Glu-TTC-1_mappingplot.txt",
+#' tsRNA_mapping_comparision(filename = "Homo_sapiens_tRNA-Glu-TTC-1_mappingplot.txt",
 #' Hsamples=c("XWH5_S7_L004", "XWH4_S6_L004", "XWH1_S0_L000", "XWH2_S6_L003"),
 #' Lsamples=c("XWH3_S5_L004",  "XWL4_S11_L004", "XWL1_S8_L004",  "XWL3_S0_L000",  "XWL2_S9_L004",  "XWL5_S1_L001" ),
-#' Nsamples=c("XWN1_S1_L004", "XWN2_S2_L004", "XWN3_S5_L003")
-#' )
+#' Nsamples=c("XWN1_S1_L004", "XWN2_S2_L004", "XWN3_S5_L003"))
 #'
 #'
-tRNA_mapping_comparision<- function(filename,
+#'
+tsRNA_mapping_comparision<- function(filename,
                                     Tsamples= FALSE,
                                     Hsamples= FALSE,
                                     Lsamples= FALSE,
@@ -38,6 +38,7 @@ tRNA_mapping_comparision<- function(filename,
                                     colors = c("#00AFBB","#FC4E07","#E7B800"),
                                     suffix='.pdf'){
   library(wrMisc)
+  library(ggplot2)
   library(reshape2)
   library(ggpubr)
 
