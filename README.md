@@ -20,7 +20,7 @@ devtools::install_github('Xia-Youmei/tssports-master')
 
 Alternatively, the latest version can be installed locally from Git-hub: https://github.com/Xia-Youmei/tssports-master, and use the R package for your own data.
 
-```
+```r
 if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }

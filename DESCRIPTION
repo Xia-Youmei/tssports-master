@@ -12,7 +12,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/Xia-Youmei/tssports-master
 BugReports: https://github.com/Xia-Youmei/tssports-master/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2
 Depends:
     R (>= 4.0.0)
 Imports:
@@ -40,5 +40,3 @@ Collate:
 Suggests:
     devtools,
     testthat
-
-

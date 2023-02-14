@@ -1,0 +1,61 @@
+#!/user/bin/Rscript
+#tRNA mapping plot for comparsion group
+#self.R experimentfile datafile
+
+library(wrMisc)
+library(reshape2)
+library(ggpubr)
+
+#args=commandArgs(T)
+
+experi=read.csv("experiments_design_for_deseq2Rscript.csv",header=TRUE)
+Hsamples=experi[experi[,3] == "H",1]
+Lsamples=experi[experi[,3] == "L",1]
+Nsamples=experi[experi[,3] == "N",1]
+
+tRNA.mapping <- read.table("Homo_sapiens_tRNA-Glu-TTC-1_mappingplot.txt",sep="\t")
+
+tRNA.number <- nrow(tRNA.mapping)
+
+re.data=data.frame(length=1:length(strsplit(as.character(tRNA.mapping[1,2]), ",")[[1]]))
+for (i in 1:tRNA.number) {
+  rpm <- strsplit(as.character(tRNA.mapping[i,2]), ",")
+  title.name <- as.character(tRNA.mapping[i,1])
+  len <- length(rpm[[1]])
+  length = c(1:len)
+  print(len)
+  length.data <- data.frame(RPM = as.numeric(rpm[[1]]))
+  colnames(length.data)[1]=tRNA.mapping[i,3]
+  re.data=cbind(re.data,length.data)
+}
+
+
+hsem=rowSEMs(re.data[,Hsamples])
+lsem=rowSEMs(re.data[,Lsamples])
+nsem=rowSEMs(re.data[,Nsamples])
+
+hmean=rowMeans(re.data[,Hsamples])
+lmean=rowMeans(re.data[,Lsamples])
+nmean=rowMeans(re.data[,Nsamples])
+
+re.data=data.frame(length=length,hmean=hmean,lmean=lmean,nmean=nmean)
+
+dp=melt(re.data, id.vars = "length")
+
+dp$sem=c(hsem,lsem,nsem)
+dp$low=dp$value-dp$sem
+dp$high=dp$value+dp$sem
+
+dp$variable=factor(dp$variable,levels=c("nmean","hmean","lmean"))
+
+p=ggplot(dp, aes(x = length, y = value, color=variable))+
+  geom_line(size=1)+theme_pubr()+
+  geom_ribbon(aes(ymin = low, ymax = high,fill=variable), alpha = 0.1,colour = NA)+
+  scale_color_manual(values = c("#00AFBB","#E7B800","#FC4E07"))+
+  scale_fill_manual(values = c("#00AFBB","#E7B800","#FC4E07"))+
+  ylab("Coverage(RPM)")+xlab("Length of nucleotides")+labs(color="group")+labs(fill="group")
+p
+# ggsave("Homo_sapiens_tRNA-Gly-GCC-1.pdf",p,width=8,height=4)
+ggsave("Homo_sapiens_tRNA-Gly-TTC-1.pdf",p,width=8,height=4)
+
+
