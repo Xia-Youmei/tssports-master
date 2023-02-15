@@ -6,11 +6,11 @@
 \usage{
 rsRNAmapping(
   Tsamples = NULL,
-  Hsamples = FALSE,
-  Lsamples = FALSE,
+  Hsamples = NULL,
+  Lsamples = NULL,
   Nsamples,
-  rsRNAName = "28S",
   rsRNAFilePrefixJunctionSymbol = "_",
+  rsRNAName = "28S",
   rsRNAFileSuffix = "_rRNA_mapping_revised.txt",
   region_start = 115,
   colors = c("#00AFBB", "#FC4E07", "#E7B800"),
@@ -18,22 +18,28 @@ rsRNAmapping(
 )
 }
 \arguments{
-\item{Tsamples}{A collection of treat group file name prefixes, generally after removing "_mappingplot.txt".}
+\item{Tsamples}{A collection of treat group file name prefixes.}
 
-\item{Hsamples}{A collection of high group file name prefixes, generally after removing "_mappingplot.txt".}
+\item{Hsamples}{A collection of high group file name prefixes.}
 
-\item{Lsamples}{A collection of low group file name prefixes, generally after removing "_mappingplot.txt".}
+\item{Lsamples}{A collection of low group file name prefixes.}
 
-\item{Nsamples}{A collection of control group file name prefixes, generally after removing "_mappingplot.txt".}
+\item{Nsamples}{A collection of control group file name prefixes.}
+
+\item{rsRNAFilePrefixJunctionSymbol}{RsRNA file prefix junction symbol, it is the concatenator that removes the Tsamples/Hsamples/Lsamples/Nsamples prefix and suffix.}
+
+\item{rsRNAName}{Specific rsRNA name, like 28S/5S/5.8S and so on.}
+
+\item{rsRNAFileSuffix}{RsRNA file suffix, it's usually after rsRNAName.}
+
+\item{region_start}{Length of nucleotides start region site, end region always add 59 based on start region site.}
 
 \item{colors}{The color of the line in the line chart.}
 
-\item{suffix}{A format suffix for a graph file.}
-
-\item{pattern}{A uniform suffix for the filename results returned by the function of prepare_tsRNA_mapping_plotdata.}
+\item{suffix}{A format suffix for a graph file, it can be jpg/png/tif/gif and so on.}
 }
 \value{
-the coverage profile of the tsRNA and form a new file "specific tsRNA".pdf.
+the coverage profile of the rsRNA and form a new file "specific rsRNA".pdf.
 }
 \description{
 Plot the coverage profile of the rsRNA, Solid curves presenting average RPM of 2 groups(treat VS control) or 3 groups(high VS control; low VS control). RPM, reads per million; nt, nucleotide. Colored band stood for 95% CI.
@@ -46,7 +52,8 @@ Nsamples=c("XWN1_S1_L004", "XWN2_S2_L004", "XWN3_S5_L003")
 3 group : high VS control; low VS control
 rsRNAmapping(Hsamples=c("XWH5_S7_L004", "XWH4_S6_L004", "XWH1_S0_L000", "XWH2_S6_L003"),
 Lsamples=c("XWH3_S5_L004",  "XWL4_S11_L004", "XWL1_S8_L004",  "XWL3_S0_L000",  "XWL2_S9_L004",  "XWL5_S1_L001" ),
-Nsamples=c("XWN1_S1_L004", "XWN2_S2_L004", "XWN3_S5_L003"))
+Nsamples=c("XWN1_S1_L004", "XWN2_S2_L004", "XWN3_S5_L003"),
+rsRNAFilePrefixJunctionSymbol = '_R1_001_')
 
 
 
